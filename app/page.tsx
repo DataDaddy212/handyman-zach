@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Image from 'next/image'
 import siteData from '../content/site.json'
 
 export default function Home() {
@@ -39,30 +40,64 @@ export default function Home() {
     }
   }
 
+  const getServiceIcon = (service: string) => {
+    const icons: { [key: string]: string } = {
+      'TV & shelf mounting': '📺',
+      'Bike repair': '🚲',
+      'Lawn services': '🌱',
+      'Gardening': '🌿',
+      'Deck repair': '🔨',
+      'Painting': '🎨'
+    }
+    return icons[service] || '🔧'
+  }
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">{siteData.businessName}</h1>
-          <p className="text-xl md:text-2xl mb-8">{siteData.tagline}</p>
-          <a 
-            href="#contact" 
-            className="bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 inline-block"
-          >
-            Request a consultation
-          </a>
+      <section className="bg-gradient-to-br from-amber-400 via-orange-300 to-blue-400 py-20 lg:py-32">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 font-heading leading-tight">
+                {siteData.businessName}
+              </h1>
+              <p className="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed">
+                {siteData.tagline}
+              </p>
+              <a 
+                href="#contact" 
+                className="bg-white text-amber-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-block"
+              >
+                Request a consultation
+              </a>
+            </div>
+            <div className="hidden xl:block">
+              <Image
+                src="https://images.unsplash.com/photo-1508898578281-774ac4893bd0"
+                alt="Professional handyman working with tools in Saugerties"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-2xl"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16 text-gray-900 font-heading">Our Services</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {siteData.services.map((service, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-lg font-semibold mb-2">{service}</h3>
+              <div key={index} className="bg-white p-8 rounded-xl card-shadow hover:shadow-lg transition-shadow">
+                <div className="text-4xl mb-4">{getServiceIcon(service)}</div>
+                <h3 className="text-xl font-semibold mb-3 text-gray-900">{service}</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {siteData.serviceDetails[service as keyof typeof siteData.serviceDetails]}
+                </p>
               </div>
             ))}
           </div>
@@ -70,14 +105,17 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16">
+      <section className="py-20 bg-amber-50">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
+          <h2 className="text-4xl font-bold text-center mb-16 text-gray-900 font-heading">What Our Clients Say</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {siteData.testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-lg">
-                <p className="text-lg italic mb-4">&ldquo;{testimonial.quote}&rdquo;</p>
-                <p className="font-semibold">— {testimonial.author}</p>
+              <div key={index} className="bg-white p-8 rounded-xl card-shadow">
+                <div className="text-6xl text-amber-200 mb-4">"</div>
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed italic">
+                  {testimonial.quote}
+                </p>
+                <p className="font-semibold text-gray-900">— {testimonial.author}</p>
               </div>
             ))}
           </div>
@@ -85,25 +123,27 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-gray-50">
+      <section id="contact" className="py-20 bg-gray-900">
         <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Get In Touch</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-white font-heading">Get In Touch</h2>
           
           {status === 'success' && (
-            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-              Thanks—We&apos;ll be in touch!
+            <div className="bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg mb-8 text-center">
+              <div className="text-2xl mb-2">✅</div>
+              <div className="font-semibold">Thanks—We&apos;ll be in touch!</div>
             </div>
           )}
 
           {status === 'error' && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
-              {errorMessage}
+            <div className="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-lg mb-8 text-center">
+              <div className="text-2xl mb-2">❌</div>
+              <div className="font-semibold">{errorMessage}</div>
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="name" className="block text-lg font-medium text-white mb-3">
                 Name *
               </label>
               <input
@@ -113,12 +153,13 @@ export default function Home() {
                 minLength={2}
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-900"
+                placeholder="Your full name"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-lg font-medium text-white mb-3">
                 Email *
               </label>
               <input
@@ -127,12 +168,13 @@ export default function Home() {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-900"
+                placeholder="your.email@example.com"
               />
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="phone" className="block text-lg font-medium text-white mb-3">
                 Phone
               </label>
               <input
@@ -140,29 +182,31 @@ export default function Home() {
                 id="phone"
                 value={formData.phone}
                 onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-900"
+                placeholder="(555) 123-4567"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="message" className="block text-lg font-medium text-white mb-3">
                 Message *
               </label>
               <textarea
                 id="message"
                 required
                 minLength={6}
-                rows={4}
+                rows={5}
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-900"
+                placeholder="Tell us about your project..."
               />
             </div>
 
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="w-full bg-blue-600 text-white py-3 px-4 rounded-md font-semibold hover:bg-blue-700 disabled:opacity-50"
+              className="w-full bg-amber-500 text-white py-4 px-6 rounded-lg text-lg font-semibold hover:bg-amber-600 disabled:opacity-50 transition-colors"
             >
               {status === 'sending' ? 'Sending...' : 'Send Message'}
             </button>

@@ -13,6 +13,14 @@
     "Deck repair",
     "Painting"
   ],
+  "serviceDetails": {
+    "TV & shelf mounting": "Secure mounting for TVs, shelves, and wall decorations with professional precision.",
+    "Bike repair": "Complete bicycle maintenance and repair services to keep you rolling smoothly.",
+    "Lawn services": "Regular mowing, edging, and lawn care to keep your yard looking pristine.",
+    "Gardening": "Planting, pruning, and garden maintenance to enhance your outdoor space.",
+    "Deck repair": "Deck restoration, staining, and structural repairs to ensure safety and beauty.",
+    "Painting": "Interior and exterior painting services with attention to detail and quality finishes."
+  },
   "testimonials": [
     { "author": "Michael", "quote": "Zach went above and beyond" }
   ]
