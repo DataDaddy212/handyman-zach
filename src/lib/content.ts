@@ -1,5 +1,5 @@
 import { SiteContent } from '@/types';
-import siteData from '../../../content/site.json';
+import siteData from '../../content/site.json';
 
 export const siteContent: SiteContent = siteData;
 
