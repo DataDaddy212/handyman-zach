@@ -1,0 +1,90 @@
+{
+  "site": {
+    "name": "Handyman Zach",
+    "tagline": "Professional Handyman Services in the Hudson Valley",
+    "phone": "(845) 555-0123",
+    "email": "zach@handymanzach.com",
+    "email_to": "michael.davis5635@gmail.com",
+    "address": {
+      "street": "123 Main Street",
+      "city": "Saugerties",
+      "state": "NY",
+      "zip": "12477"
+    },
+    "serviceArea": ["Saugerties NY", "Kingston NY", "Woodstock NY", "Catskill NY"],
+    "description": "Professional handyman services in Saugerties, Kingston, Woodstock, and Catskill. From mounting and bike repair to lawn services and deck repair, we handle it all with quality and reliability."
+  },
+  "services": [
+    {
+      "id": "mounting",
+      "name": "Mounting Services",
+      "description": "Professional mounting and installation services for TVs, shelves, artwork, and more. Secure and level installations guaranteed.",
+      "icon": "🔧"
+    },
+    {
+      "id": "bike-repair",
+      "name": "Bike Repair",
+      "description": "Complete bicycle repair and maintenance services. From tune-ups to major repairs, get your bike running smoothly again.",
+      "icon": "🚲"
+    },
+    {
+      "id": "lawn-services",
+      "name": "Lawn Services",
+      "description": "Comprehensive lawn care including mowing, trimming, edging, and seasonal maintenance to keep your property looking its best.",
+      "icon": "🌱"
+    },
+    {
+      "id": "gardening",
+      "name": "Gardening",
+      "description": "Expert gardening services including planting, pruning, landscaping, and garden maintenance to enhance your outdoor space.",
+      "icon": "🌿"
+    },
+    {
+      "id": "deck-repair",
+      "name": "Deck Repair",
+      "description": "Professional deck repair, maintenance, and restoration services. From loose boards to complete refinishing.",
+      "icon": "🏗️"
+    },
+    {
+      "id": "painting",
+      "name": "Painting",
+      "description": "Interior and exterior painting services with attention to detail. Quality paints and professional techniques for lasting results.",
+      "icon": "🎨"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "testimonial-1",
+      "name": "Sarah Johnson",
+      "location": "Kingston, NY",
+      "service": "Deck Repair",
+      "rating": 5,
+      "text": "Zach did an amazing job repairing our deck. He was professional, punctual, and the work quality was outstanding. Our deck looks brand new!"
+    },
+    {
+      "id": "testimonial-2",
+      "name": "Mike Chen",
+      "location": "Woodstock, NY",
+      "service": "TV Mounting",
+      "rating": 5,
+      "text": "Perfect TV mounting service! Zach was careful with our walls and made sure everything was level and secure. Highly recommend!"
+    },
+    {
+      "id": "testimonial-3",
+      "name": "Lisa Rodriguez",
+      "location": "Saugerties, NY",
+      "service": "Gardening",
+      "rating": 5,
+      "text": "Zach transformed our garden completely. His attention to detail and knowledge of plants really shows. Our yard has never looked better."
+    },
+    {
+      "id": "testimonial-4",
+      "name": "David Thompson",
+      "location": "Catskill, NY",
+      "service": "Bike Repair",
+      "rating": 5,
+      "text": "Quick and professional bike repair service. Zach fixed my bike's brakes and gears perfectly. Will definitely use his services again."
+    }
+  ]
+}
+
