@@ -1,0 +1,19 @@
+{
+  "businessName": "Handyman Zach",
+  "tagline": "Handyman Zach — Zach of All Trades for Mounting, Bike Repair, Lawn & Garden, Deck Repair, and Painting.",
+  "contact": {
+    "phone": "(555) 010-0000",
+    "toEmail": "michael.davis5635@gmail.com"
+  },
+  "services": [
+    "TV & shelf mounting",
+    "Bike repair",
+    "Lawn services",
+    "Gardening",
+    "Deck repair",
+    "Painting"
+  ],
+  "testimonials": [
+    { "author": "Michael", "quote": "Zach went above and beyond" }
+  ]
+}
