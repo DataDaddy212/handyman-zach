@@ -55,10 +55,10 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-amber-400 via-orange-300 to-blue-400 py-20 lg:py-32">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+      <section className="bg-gradient-to-br from-amber-400 via-orange-300 to-blue-400 py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="order-2 lg:order-1">
               <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 font-heading leading-tight">
                 {siteData.businessName}
               </h1>
@@ -72,13 +72,13 @@ export default function Home() {
                 Request a consultation
               </a>
             </div>
-            <div className="hidden xl:block">
+            <div className="order-1 lg:order-2">
               <Image
-                src="https://images.unsplash.com/photo-1508898578281-774ac4893bd0"
-                alt="Professional handyman working with tools in Saugerties"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-2xl"
+                src="/hero-tools.jpg"
+                alt="Handyman tools neatly arranged on a wooden workbench"
+                width={900}
+                height={600}
+                className="rounded-xl shadow-xl w-full h-auto object-cover"
                 priority
               />
             </div>
