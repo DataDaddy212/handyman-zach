@@ -67,7 +67,7 @@ export default function Home() {
               </p>
               <a 
                 href="#contact" 
-                className="bg-white text-amber-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-block"
+                className="bg-white text-amber-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-block flex items-center justify-center text-center"
               >
                 Request a consultation
               </a>
@@ -183,7 +183,7 @@ export default function Home() {
                 value={formData.phone}
                 onChange={(e) => setFormData({...formData, phone: e.target.value})}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-900"
-                placeholder="(555) 123-4567"
+                placeholder="(347) 623-6959"
               />
             </div>
 

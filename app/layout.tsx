@@ -31,7 +31,7 @@ export default function RootLayout({
             <h1 className="text-2xl font-bold text-gray-900 font-heading">{siteData.businessName}</h1>
             <a 
               href="#contact" 
-              className="bg-amber-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-amber-600 transition-colors"
+              className="bg-amber-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-amber-600 transition-colors flex items-center justify-center text-center"
             >
               Request a consultation
             </a>
@@ -41,7 +41,7 @@ export default function RootLayout({
         <footer className="bg-gray-100 py-12">
           <div className="max-w-6xl mx-auto px-4 text-center">
             <p className="text-lg font-semibold mb-2 text-gray-900">{siteData.businessName}</p>
-            <p className="text-gray-600 mb-2">Phone: {siteData.contact.phone}</p>
+            <p className="text-gray-600 mb-2">Phone: <a href={`tel:${siteData.contact.phone}`} className="text-amber-600 hover:text-amber-700 underline">{siteData.contact.phone}</a></p>
             <p className="text-sm text-gray-500">Serving Saugerties & nearby towns</p>
           </div>
         </footer>
