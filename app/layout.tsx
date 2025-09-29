@@ -58,7 +58,7 @@ export default function RootLayout({
           <div className="max-w-6xl mx-auto px-4 text-center">
             <p className="text-lg font-semibold mb-2 text-gray-900">{siteData.businessName}</p>
             <p className="text-gray-600 mb-2">Phone: <a href={`tel:${siteData.contact.phone}`} className="text-amber-600 hover:text-amber-700 underline">{siteData.contact.phone}</a></p>
-            <p className="text-sm text-gray-500">Serving Saugerties & nearby towns</p>
+            <p className="text-sm text-gray-500">Serving Saugerties, Kingston, Woodstock & Catskill</p>
           </div>
         </footer>
       </body>
