@@ -1,5 +1,6 @@
 import './globals.css'
 import { Poppins, Inter } from 'next/font/google'
+import Link from 'next/link'
 import siteData from '../content/site.json'
 
 const poppins = Poppins({ 
@@ -44,7 +45,9 @@ export default function RootLayout({
       <body className={`${inter.variable} ${poppins.variable} font-sans`}>
         <header className="sticky top-0 z-50 bg-white shadow-sm border-b">
           <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
-            <h1 className="text-2xl font-bold text-gray-900 font-heading">{siteData.businessName}</h1>
+            <Link href="/">
+              <h1 className="text-2xl font-bold text-gray-900 font-heading">{siteData.businessName}</h1>
+            </Link>
             <a 
               href="#contact" 
               className="bg-amber-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-amber-600 transition-colors flex items-center justify-center text-center"
