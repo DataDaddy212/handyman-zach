@@ -25,6 +25,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Handyman Zach",
+              "image": "/hero-tools.jpg",
+              "telephone": "(347) 623-6959",
+              "areaServed": ["Saugerties NY", "Kingston NY", "Woodstock NY", "Catskill NY"],
+              "serviceType": ["Handyman Services"]
+            })
+          }}
+        />
+      </head>
       <body className={`${inter.variable} ${poppins.variable} font-sans`}>
         <header className="sticky top-0 z-50 bg-white shadow-sm border-b">
           <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">

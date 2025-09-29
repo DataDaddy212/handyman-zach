@@ -122,6 +122,46 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Service Areas Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-8 text-gray-900 font-heading">Service Areas</h2>
+          <p className="text-xl text-gray-600 mb-12">
+            Handyman Zach proudly serves these communities in the Hudson Valley
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <a 
+              href="/handyman-saugerties" 
+              className="bg-amber-50 hover:bg-amber-100 p-6 rounded-lg transition-colors group"
+            >
+              <h3 className="text-lg font-semibold text-gray-900 group-hover:text-amber-600">Saugerties</h3>
+              <p className="text-sm text-gray-600">NY</p>
+            </a>
+            <a 
+              href="/handyman-kingston" 
+              className="bg-amber-50 hover:bg-amber-100 p-6 rounded-lg transition-colors group"
+            >
+              <h3 className="text-lg font-semibold text-gray-900 group-hover:text-amber-600">Kingston</h3>
+              <p className="text-sm text-gray-600">NY</p>
+            </a>
+            <a 
+              href="/handyman-woodstock" 
+              className="bg-amber-50 hover:bg-amber-100 p-6 rounded-lg transition-colors group"
+            >
+              <h3 className="text-lg font-semibold text-gray-900 group-hover:text-amber-600">Woodstock</h3>
+              <p className="text-sm text-gray-600">NY</p>
+            </a>
+            <a 
+              href="/handyman-catskill" 
+              className="bg-amber-50 hover:bg-amber-100 p-6 rounded-lg transition-colors group"
+            >
+              <h3 className="text-lg font-semibold text-gray-900 group-hover:text-amber-600">Catskill</h3>
+              <p className="text-sm text-gray-600">NY</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gray-900">
         <div className="max-w-2xl mx-auto px-4">

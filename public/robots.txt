@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://handyman-zach-kmb5i0pxv-michaels-projects-a9a025bf.vercel.app/sitemap.xml
