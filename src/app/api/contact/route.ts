@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import siteData from '../../../content/site.json'
+import siteData from '../../../../content/site.json'
 
 const resend = new Resend(process.env.RESEND_API_KEY || 'dummy-key')
 

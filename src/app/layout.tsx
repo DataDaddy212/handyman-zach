@@ -1,7 +1,7 @@
 import './globals.css'
 import { Poppins, Inter } from 'next/font/google'
 import Link from 'next/link'
-import siteData from '../content/site.json'
+import siteData from '../../content/site.json'
 
 const poppins = Poppins({ 
   subsets: ['latin'],

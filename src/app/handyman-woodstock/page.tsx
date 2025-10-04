@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
-import siteData from '../../content/site.json'
+import siteData from '../../../content/site.json'
 
 export const metadata: Metadata = {
   title: "Handyman in Woodstock – Handyman Zach",

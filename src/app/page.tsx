@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
-import siteData from '../content/site.json'
+import siteData from '../../content/site.json'
 
 export default function Home() {
   const [formData, setFormData] = useState({

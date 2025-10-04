@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import siteData from '../../content/site.json'
+import siteData from '../../../content/site.json'
 
 export const metadata = {
   title: "Bikes for Sale – Handyman Zach",
