@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import siteData from '../../../content/site.json'
 
 export const metadata = {
@@ -23,21 +24,56 @@ const bikes = [
 
 export default function BikesForSale() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      {/* Navigation Breadcrumb */}
+      <div className="bg-gray-100 py-4">
+        <div className="max-w-6xl mx-auto px-4">
+          <nav className="flex items-center space-x-2 text-sm">
+            <Link href="/" className="text-amber-600 hover:text-amber-700 underline">
+              Home
+            </Link>
+            <span className="text-gray-500">/</span>
+            <span className="text-gray-900 font-medium">Bikes for Sale</span>
+          </nav>
+        </div>
+      </div>
+
       {/* Page Header */}
       <section className="bg-gradient-to-br from-amber-400 via-orange-300 to-blue-400 py-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 font-heading">
             Bikes for Sale
           </h1>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
             Browse bikes currently available for sale. Contact Zach for details.
           </p>
+          
+          {/* Quick Navigation */}
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
+            <Link 
+              href="/" 
+              className="bg-white/20 text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors"
+            >
+              ← Back to Home
+            </Link>
+            <Link 
+              href="/handyman-saugerties" 
+              className="bg-white/20 text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors"
+            >
+              Handyman Services
+            </Link>
+            <a 
+              href="#contact" 
+              className="bg-white text-amber-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              Contact Zach
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Bikes Grid */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8">
             {bikes.map((bike, index) => (
@@ -72,25 +108,29 @@ export default function BikesForSale() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-900">
-        <div className="max-w-2xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white mb-8 font-heading">Interested in a Bike?</h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Contact Zach to schedule a viewing or get more information about any of our available bikes.
-          </p>
-          <div className="bg-white p-8 rounded-xl">
-            <p className="text-lg font-semibold mb-2 text-gray-900">{siteData.businessName}</p>
-            <p className="text-gray-600 mb-4">
-              Phone: <a href={`tel:${siteData.contact.phone}`} className="text-amber-600 hover:text-amber-700 underline">{siteData.contact.phone}</a>
+          
+          {/* Additional Navigation */}
+          <div className="mt-12 text-center">
+            <p className="text-gray-600 mb-6">
+              Can't find what you're looking for? Zach can help you find the perfect bike!
             </p>
-            <p className="text-sm text-gray-500">Serving Saugerties, Kingston, Woodstock & Catskill</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link 
+                href="/" 
+                className="bg-amber-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-amber-600 transition-colors"
+              >
+                View All Services
+              </Link>
+              <a 
+                href={`tel:${siteData.contact.phone}`} 
+                className="bg-white text-amber-600 border-2 border-amber-500 px-6 py-3 rounded-lg font-medium hover:bg-amber-50 transition-colors"
+              >
+                Call Zach: {siteData.contact.phone}
+              </a>
+            </div>
           </div>
         </div>
       </section>
-    </div>
+    </>
   )
 }

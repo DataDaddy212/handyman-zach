@@ -104,6 +104,22 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Bikes for Sale Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-8 text-gray-900 font-heading">🚲 Bikes for Sale</h2>
+          <p className="text-xl text-gray-600 mb-12">
+            Zach also sells quality bikes! Check out our current inventory of mountain and road bikes.
+          </p>
+          <a 
+            href="/bikes-for-sale" 
+            className="bg-amber-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-amber-600 transition-colors inline-block"
+          >
+            Browse Available Bikes
+          </a>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-20 bg-amber-50">
         <div className="max-w-4xl mx-auto px-4">
