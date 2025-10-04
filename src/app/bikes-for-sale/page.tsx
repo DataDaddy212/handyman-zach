@@ -1,11 +1,8 @@
+'use client'
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import siteData from '../../../content/site.json'
-
-export const metadata = {
-  title: "Bikes for Sale – Handyman Zach",
-  description: "Browse bikes currently available for sale from Handyman Zach. Quality bikes in Saugerties, Kingston, Woodstock, and Catskill.",
-}
 
 const bikes = [
   {
@@ -23,6 +20,42 @@ const bikes = [
 ]
 
 export default function BikesForSale() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  })
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus('sending')
+    setErrorMessage('')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+
+      const result = await response.json()
+      
+      if (result.ok) {
+        setStatus('success')
+        setFormData({ name: '', email: '', phone: '', message: '' })
+      } else {
+        setStatus('error')
+        setErrorMessage(result.error || 'Something went wrong')
+      }
+    } catch (error) {
+      setStatus('error')
+      setErrorMessage('Network error. Please try again.')
+    }
+  }
+
   return (
     <>
       {/* Navigation Breadcrumb */}
@@ -56,14 +89,8 @@ export default function BikesForSale() {
             >
               ← Back to Home
             </Link>
-            <Link 
-              href="/handyman-saugerties" 
-              className="bg-white/20 text-white px-4 py-2 rounded-lg hover:bg-white/30 transition-colors"
-            >
-              Handyman Services
-            </Link>
             <a 
-              href="#contact" 
+              href="#contact-form" 
               className="bg-white text-amber-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors"
             >
               Contact Zach
@@ -98,7 +125,7 @@ export default function BikesForSale() {
                   </p>
                   <div className="mt-6">
                     <a 
-                      href="#contact" 
+                      href="#contact-form" 
                       className="bg-amber-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-amber-600 transition-colors inline-block"
                     >
                       Contact for Details
@@ -116,7 +143,7 @@ export default function BikesForSale() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link 
-                href="/" 
+                href="/#our-services" 
                 className="bg-amber-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-amber-600 transition-colors"
               >
                 View All Services
@@ -129,6 +156,98 @@ export default function BikesForSale() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section id="contact-form" className="py-20 bg-gray-900">
+        <div className="max-w-2xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white font-heading">Get In Touch</h2>
+          
+          {status === 'success' && (
+            <div className="bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg mb-8 text-center">
+              <div className="text-2xl mb-2">✅</div>
+              <div className="font-semibold">Thanks—We&apos;ll be in touch!</div>
+            </div>
+          )}
+
+          {status === 'error' && (
+            <div className="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-lg mb-8 text-center">
+              <div className="text-2xl mb-2">❌</div>
+              <div className="font-semibold">{errorMessage}</div>
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label htmlFor="bikes-name" className="block text-lg font-medium text-white mb-3">
+                Name *
+              </label>
+              <input
+                type="text"
+                id="bikes-name"
+                required
+                minLength={2}
+                value={formData.name}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-900"
+                placeholder="Your full name"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="bikes-email" className="block text-lg font-medium text-white mb-3">
+                Email *
+              </label>
+              <input
+                type="email"
+                id="bikes-email"
+                required
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-900"
+                placeholder="your.email@example.com"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="bikes-phone" className="block text-lg font-medium text-white mb-3">
+                Phone
+              </label>
+              <input
+                type="tel"
+                id="bikes-phone"
+                value={formData.phone}
+                onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-900"
+                placeholder="(347) 623-6959"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="bikes-message" className="block text-lg font-medium text-white mb-3">
+                Message *
+              </label>
+              <textarea
+                id="bikes-message"
+                required
+                minLength={6}
+                rows={5}
+                value={formData.message}
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-900"
+                placeholder="Tell us about your bike inquiry..."
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={status === 'sending'}
+              className="w-full bg-amber-500 text-white py-4 px-6 rounded-lg text-lg font-semibold hover:bg-amber-600 disabled:opacity-50 transition-colors"
+            >
+              {status === 'sending' ? 'Sending...' : 'Send Message'}
+            </button>
+          </form>
         </div>
       </section>
     </>
