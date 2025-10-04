@@ -48,12 +48,35 @@ export default function RootLayout({
             <Link href="/">
               <h1 className="text-2xl font-bold text-gray-900 font-heading">{siteData.businessName}</h1>
             </Link>
-            <a 
-              href="#contact" 
-              className="bg-amber-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-amber-600 transition-colors flex items-center justify-center text-center"
-            >
-              Request a consultation
-            </a>
+            <nav className="hidden md:flex items-center space-x-6">
+              <a 
+                href="#our-services" 
+                className="text-gray-700 hover:text-amber-600 font-medium transition-colors"
+              >
+                Our Services
+              </a>
+              <Link 
+                href="/bikes-for-sale" 
+                className="text-gray-700 hover:text-amber-600 font-medium transition-colors"
+              >
+                Bikes for Sale
+              </Link>
+              <a 
+                href="#contact" 
+                className="bg-amber-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-amber-600 transition-colors flex items-center justify-center text-center"
+              >
+                Request a consultation
+              </a>
+            </nav>
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <a 
+                href="#contact" 
+                className="bg-amber-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-amber-600 transition-colors text-sm"
+              >
+                Contact
+              </a>
+            </div>
           </div>
         </header>
         <main>{children}</main>
