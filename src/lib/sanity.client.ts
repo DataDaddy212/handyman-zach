@@ -10,6 +10,7 @@ export const config = {
 
 // Set up the client for fetching data in the getProps page functions
 export const sanityClient = createClient(config)
+export const client = sanityClient // Named export for convenience
 
 // Set up a helper function for generating Image URLs with only the asset reference data in your documents
 export const urlFor = (source: any) => imageUrlBuilder(config).image(source)
