@@ -6,13 +6,22 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "studio": "cd sanity && sanity dev",
+    "deploy-studio": "cd sanity && sanity deploy"
   },
   "dependencies": {
+    "@sanity/client": "^7.12.0",
+    "@sanity/image-url": "^1.2.0",
+    "@sanity/vision": "^4.10.2",
+    "groq": "^4.10.2",
     "next": "15.5.3",
+    "next-sanity": "^11.4.2",
     "react": "^18",
     "react-dom": "^18",
-    "resend": "^3.2.0"
+    "resend": "^3.2.0",
+    "sanity": "^4.10.2",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
     "@types/node": "^20",
